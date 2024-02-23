@@ -2,44 +2,55 @@
 
 * {
     font-family: "Karla", sans-serif;
+    box-sizing: border-box;
     margin: 0;
-    border: 1px red solid;
 }
 
 body {
     display: flex;
     justify-content: center;
-    
-    background-color: #444;
+    background-image: linear-gradient(#696c6e, #2c3e50);
 }
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 99.5vh;
 }
 
+main h1 {
+    font-size: 50px;
+}
+
 main .container {
     display: flex;
     width: 1080px;
-    height: 720px;
+    height: 700px;
+    border: 1px black solid;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 main .color {
     flex: 2;
+    background-color: #ffffff;
+    border: 1px black solid;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
 }
 
 main .grid {
     flex: 6;
+    border: 1px black solid;
+    background-color: #ffffff;
 }
 
 main .markup {
-    flex: 1;
+    flex: 1.25;
+    border: 1px black solid;
+    background-color: #ffffff;
 }
-
