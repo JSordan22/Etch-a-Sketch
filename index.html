@@ -8,14 +8,28 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <h1>Etch A Sketch</h1>
+    <header>
+        <h1>Etch A Sketch</h1>
+    </header>
     <main>
-        
-         <div class="container">
-            <div class="color"></div>
+        <section class="container">
+            <div class="settings">
+                <div class="color" id="curr-color"></div>
+                <input type="range" min="1" max="64" value="32" class="slider" id="grid-size">
+                <button>Reset</button>
+            </div>
             <div class="grid"></div>
-            <div class="markup"></div>
-         </div>
+            <div class="markup">
+                <button>Basic</button>
+                <button>Lighten</button>
+                <button>Darken</button>
+                <button>Rainbow</button>
+                <button>Eraser</button>
+            </div>
+        </section>
+        <footer>
+            <p>Copyright © The Odin Project | Jordan Stewart 2024</p>
+        </footer>
     </main>
 </body>
 </html>
