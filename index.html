@@ -16,20 +16,20 @@
             <div class="settings">
                 <input type="color" id="curr-color">
                 <div>
-                    <p id="slider-value">32 x 32</p>
-                    <input type="range" min="2" max="64" value="32" class="slider" id="grid-size">
+                    <p id="slider-value">16 x 16</p>
+                    <input type="range" min="2" max="64" value="16" class="slider" id="grid-size">
                 </div>
-                <button>Reset</button>
+                <button id="reset">Reset</button>
             </div>
             <div class="grid" id="grid"></div>
             <div class="markup">
-                <input type="radio" name="markup" id="basic" value="basic">
+                <input type="radio" name="markup" id="basic" value="basic" checked>
                 <label class="btn" for="basic">Basic</label>
                 <input type="radio" name="markup" id="lighten" value="lighten">
                 <label class="btn" for="lighten">Lighten</label>
                 <input type="radio" name="markup" id="darken" value="darken">
                 <label class="btn" for="darken">Darken</label>
-                <input type="radio" name="markup" id="rainbow" value="rainbow" checked>
+                <input type="radio" name="markup" id="rainbow" value="rainbow">
                 <label class="btn" for="rainbow">Rainbow</label>
                 <input type="radio" name="markup" id="eraser" value="eraser">
                 <label class="btn" for="eraser">Eraser</label>

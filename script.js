@@ -2,6 +2,7 @@ const sliderValue = document.getElementById("slider-value");
 const gridSize = document.getElementById("grid-size");
 const colorWheel = document.getElementById("curr-color");
 const grid = document.getElementById("grid");
+const reset = document.getElementById("reset");
 
 gridSize.oninput = () => {
     removeChildren(grid);
@@ -9,17 +10,10 @@ gridSize.oninput = () => {
     makeGrid(gridSize.value);
 }
 
-function makeRow(value) {
-    let row = document.createElement("div");
-
-    for(let i = 0; i < value; i++) {
-        let node = document.createElement("div");
-        node.classList.add("node");
-        addColorEvent(node);
-        setElementProperties(node, value);
-        row.appendChild(node);
-    }
-    return row;
+reset.onclick = () => {
+    removeChildren(grid);
+    makeGrid(gridSize.value);
+    colorWheel.value = "rgb(255, 255, 255)";
 }
 
 function removeChildren(parent) {
@@ -28,10 +22,30 @@ function removeChildren(parent) {
     }
 }
 
-function addColorEvent(element) {
+function makeRow(value) {
+    let row = document.createElement("div");
+
+    for(let i = 0; i < value; i++) {
+        let node = document.createElement("div");
+        node.classList.add("node");
+        setColorEvent(node);
+        setElementProperties(node, value);
+        row.appendChild(node);
+    }
+    return row;
+}
+
+function setColorEvent(element) {
     element.onmouseover = () => {
         changeColor(element);
     }
+}
+
+function setElementProperties(element, value) {
+    element.style.width = grid.offsetWidth / value + "px";
+    element.style.height = grid.offsetHeight / value + "px";
+    element.style.backgroundColor = "rgb(255, 255, 255)";
+    element.style.cursor = "pointer";
 }
 
 function changeColor(element) {    
@@ -40,28 +54,38 @@ function changeColor(element) {
             element.style.backgroundColor = colorWheel.value;
             break;
         case "lighten":
-            element.style.opacity -= 0.1;
+            console.log(element.style.backgroundColor);
+            element.style.backgroundColor = lighten(element);
             break;
         case "darken":
-            element.style.opacity = parseFloat(element.style.opacity) + 0.1;
+            console.log(element.style.backgroundColor);
+            element.style.backgroundColor = darken(element);
             break;
         case "rainbow":
-            element.style.backgroundColor = generateRandomColor();
+            let rndmColor = generateRandomColor();
+            colorWheel.value = rndmColor;
+            element.style.backgroundColor = rndmColor;
             break;
         case "eraser":
-            element.style.backgroundColor = "white";
+            element.style.backgroundColor = "rgb(255, 255, 255)";
     }
+}
+
+function lighten(element) {
+    let rgbArr = element.style.backgroundColor.substring(4, element.style.backgroundColor.length - 1).split(",");
+    console.log("rgb(" + (parseInt(rgbArr[0]) + Math.ceil((255 - parseInt(rgbArr[0])) / 10)) + ", " + (parseInt(rgbArr[1]) + Math.ceil((255 - parseInt(rgbArr[1])) / 10)) + ", " + (parseInt(rgbArr[2]) + Math.ceil((255 - parseInt(rgbArr[2])) / 10)) + ")");
+    return "rgb(" + (parseInt(rgbArr[0]) + Math.ceil((255 - parseInt(rgbArr[0])) / 10)) + ", " + (parseInt(rgbArr[1]) + Math.ceil((255 - parseInt(rgbArr[1])) / 10)) + ", " + (parseInt(rgbArr[2]) + Math.ceil((255 - parseInt(rgbArr[2])) / 10)) + ")";
+}
+
+function darken(element) {
+    let rgbArr = element.style.backgroundColor.substring(4, element.style.backgroundColor.length - 1).split(",");
+    console.log("rgb(" + (parseInt(rgbArr[0]) - Math.ceil((256 - parseInt(rgbArr[0])) / 10)) + ", " + (parseInt(rgbArr[1]) - Math.ceil((255 - parseInt(rgbArr[1])) / 10)) + ", " + (parseInt(rgbArr[2]) - Math.ceil((255 - parseInt(rgbArr[2])) / 10)) + ")");
+    return "rgb(" + (parseInt(rgbArr[0]) - Math.ceil((256 - parseInt(rgbArr[0])) / 10)) + ", " + (parseInt(rgbArr[1]) - Math.ceil((256 - parseInt(rgbArr[1])) / 10)) + ", " + (parseInt(rgbArr[2]) - Math.ceil((256 - parseInt(rgbArr[2])) / 10)) + ")";
 }
 
 function generateRandomColor() {
     let hexValues = ["a", "b", "c", "d", "e", "f", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     return "#" + hexValues[Math.floor(Math.random() * 16)] + hexValues[Math.floor(Math.random() * 16)] + hexValues[Math.floor(Math.random() * 16)] + hexValues[Math.floor(Math.random() * 16)] + hexValues[Math.floor(Math.random() * 16)] + hexValues[Math.floor(Math.random() * 16)];
-}
-
-function setElementProperties(element, value) {
-    element.style.width = grid.offsetWidth / value + "px";
-    element.style.height = grid.offsetHeight / value + "px";
-    element.style.cursor = "pointer";
 }
 
 function makeGrid(value) {
