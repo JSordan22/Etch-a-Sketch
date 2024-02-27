@@ -1,6 +1,6 @@
 const sliderValue = document.getElementById("slider-value");
 const gridSize = document.getElementById("grid-size");
-const colorWheel = document.querySelector("-webkit-color-swatch");
+const colorWheel = document.getElementById("curr-color");
 const grid = document.getElementById("grid");
 
 gridSize.oninput = () => {
@@ -37,7 +37,7 @@ function addColorEvent(element) {
 function changeColor(element) {    
     switch(document.querySelector('input[name="markup"]:checked').value) {
         case "basic":
-            element.style.backgroundColor = currColor;
+            element.style.backgroundColor = colorWheel.value;
             break;
         case "lighten":
             element.style.opacity -= 0.1;
