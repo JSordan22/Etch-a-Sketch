@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root {
-    --color: "smth";
-}
-
 * {
     font-family: "Karla", sans-serif;
     box-sizing: border-box;
@@ -54,6 +50,9 @@ main .container .settings {
 
 main .container .grid {
     flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     border-left: 2px black solid;
     

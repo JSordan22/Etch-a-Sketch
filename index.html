@@ -14,24 +14,24 @@
     <main>
         <section class="container">
             <div class="settings">
-                <input type="color" id="curr-color" name="" id="">
+                <input type="color" id="curr-color">
                 <div>
                     <p id="slider-value">32 x 32</p>
                     <input type="range" min="2" max="64" value="32" class="slider" id="grid-size">
                 </div>
                 <button>Reset</button>
             </div>
-            <div class="grid"></div>
+            <div class="grid" id="grid"></div>
             <div class="markup">
-                <input type="radio" name="markup" id="basic" checked>
+                <input type="radio" name="markup" id="basic" value="basic">
                 <label class="btn" for="basic">Basic</label>
-                <input type="radio" name="markup" id="lighten">
+                <input type="radio" name="markup" id="lighten" value="lighten">
                 <label class="btn" for="lighten">Lighten</label>
-                <input type="radio" name="markup" id="darken">
+                <input type="radio" name="markup" id="darken" value="darken">
                 <label class="btn" for="darken">Darken</label>
-                <input type="radio" name="markup" id="rainbow">
+                <input type="radio" name="markup" id="rainbow" value="rainbow" checked>
                 <label class="btn" for="rainbow">Rainbow</label>
-                <input type="radio" name="markup" id="eraser">
+                <input type="radio" name="markup" id="eraser" value="eraser">
                 <label class="btn" for="eraser">Eraser</label>
             </div>
         </section>
