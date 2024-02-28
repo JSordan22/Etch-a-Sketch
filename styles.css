@@ -86,16 +86,21 @@ input[type="color" i]::-webkit-color-swatch {
     border-radius: 50%;
 }
 
-main .container .settings .slider {
+main .container .settings .slider-container p {
+    font-size: min(1vw, 1em);
+}
+
+main .container .settings .slider-container .slider {
     appearance: none;
     background-color: white;
     border: 2px black solid;
+    aspect-ratio: 6.1 / 1;
     width: max(5vw, 3em);
     border-radius: 50px;
     padding: 1px;
 }
 
-main .container .settings .slider::-webkit-slider-thumb {
+main .container .settings .slider-container .slider::-webkit-slider-thumb {
     appearance: none;
     background-color: black;
     border-radius: 50px;
@@ -109,7 +114,7 @@ main .container .settings button {
     cursor: pointer;
     border: 2px black solid;
     border-radius: 5px;
-    font-size: min(1.5vw, 2em);
+    font-size: min(1.5vw, 1.8em);
     aspect-ratio: 2.22 / 1;
     width: min(10vw, 3.5em);
     transition: 0.2s;
@@ -144,4 +149,8 @@ main .container .markup input[type="radio"] {
 main .container .markup input[type="radio"]:checked+.btn {
     background-color: black;
     color: white;
+}
+
+footer p {
+    font-size: min(1vw, 1em);
 }
