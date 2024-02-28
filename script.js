@@ -5,13 +5,11 @@ const grid = document.getElementById("grid");
 const reset = document.getElementById("reset");
 
 gridSize.oninput = () => {
-    removeChildren(grid);
     sliderValue.textContent = gridSize.value + " x " + gridSize.value;
     makeGrid(gridSize.value);
 }
 
 reset.onclick = () => {
-    removeChildren(grid);
     makeGrid(gridSize.value);
     colorWheel.value = "rgb(255, 255, 255)";
 }
@@ -89,11 +87,16 @@ function generateRandomColor() {
 }
 
 function makeGrid(value) {
+    removeChildren(grid);
     for(let i = 0; i < value; i++) {
         grid.appendChild(makeRow(value));
     }
 }
 
 window.onload = () => {
+    makeGrid(gridSize.value);
+}
+
+window.onresize = () => {
     makeGrid(gridSize.value);
 }

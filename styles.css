@@ -27,14 +27,14 @@ header {
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-weight: 600;
-    font-size: 25px;
+    font-size: min(1vw, 1.9em);
 }
 
 main .container {
     display: flex;
     border-radius: 25px;
-    width: 1080px;
-    height: 700px;
+    aspect-ratio: 1.54 / 1;
+    width: min(42vw, 66em);
     box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
@@ -50,6 +50,7 @@ main .container .settings {
 
 main .container .grid {
     flex: 6;
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,8 +72,8 @@ main .container .markup {
 
 main .container .settings input[type="color"] {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: min(7vw, 12em);
+    height: min(7vw, 12em);
     box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     
 }
@@ -89,6 +90,7 @@ main .container .settings .slider {
     appearance: none;
     background-color: white;
     border: 2px black solid;
+    width: max(5vw, 3em);
     border-radius: 50px;
     padding: 1px;
 }
@@ -107,9 +109,9 @@ main .container .settings button {
     cursor: pointer;
     border: 2px black solid;
     border-radius: 5px;
-    font-size: 24px;
-    width: 100px;
-    height: 45px;
+    font-size: min(1.5vw, 2em);
+    aspect-ratio: 2.22 / 1;
+    width: min(10vw, 3.5em);
     transition: 0.2s;
 }
 
@@ -128,9 +130,9 @@ main .container .markup .btn {
     cursor: pointer;
     border: 2px black solid;
     border-radius: 5px;
-    font-size: 16px;
-    width: 100px;
-    height: 32px;
+    aspect-ratio: 3.13 / 1;
+    font-size: min(0.67vw, 1em);
+    width: min(4vw, 6.5em);
     padding: 0px;
     transition: 0.2s;
 }
